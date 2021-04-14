@@ -32,14 +32,32 @@ const characterCards = [
   { id: 29, imgsrc: "../assets/Varys.jpg", isClicked: false },
 ];
 
+const getCard = () =>{
+    const randomImgId = (Math.floor(Math.random() * 29))
+    return characterCards[randomImgId].imgsrc;
+}
+
 
 const Cards = () => {
+    // const imageId = getCard();
+    // console.log(characterCards[imageId]);
     return (
-        characterCards.map((character,id) => {
-            console.log(character)
-            return(<img key={id} src={character.imgsrc} alt="" style={{width: "200px", height:"200px"}}></img>)
-        })
-    )
+      <div>
+        <img
+          src={getCard()}
+          alt=""
+          style={{ width: "220px", height: "327px" }}></img>
+        <img
+          src={getCard()}
+          alt=""
+          style={{ width: "220px", height: "327px" }}></img>
+        <img
+          src={getCard()}
+          alt=""
+          style={{ width: "220px", height: "327px" }}></img>
+      </div>
+    );
+
 }
 
 export default Cards;

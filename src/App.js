@@ -22,7 +22,9 @@ function App() {
         <p>Click on the Character that you have'nt seen before!</p>
       </div>
       {/* <ScoreCounter /> */}
-      <Cards />
+      <div className="Cards">
+        <Cards />
+      </div>
     </div>
   );
 }

@@ -21,7 +21,7 @@ function App() {
       <div className="GameDescription">
         <p>Click on the Character that you have'nt seen before!</p>
       </div>
-      <ScoreCounter />
+      {/* <ScoreCounter /> */}
       <Cards />
     </div>
   );

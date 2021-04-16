@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Cards from "./Cards"
 
-const CardDeck = ({ updateScore, cardDeckSize }) => {
+const CardDeck = ({resetScore, updateScore, cardDeckSize }) => {
 	const [generatedCards, setGeneratedCards] = useState([]);
 	const [userSeenCards, setUserSeenCards] = useState([]);
 	const [numberOfCards, setNumberOfCards] = useState(3);
@@ -30,14 +30,25 @@ const CardDeck = ({ updateScore, cardDeckSize }) => {
             newCardIndexs.push(n)
         }
 
-        console.log(allCardsIndex);
-        console.log(newCardIndexs);
+        // console.log(allCardsIndex);
+        // console.log(newCardIndexs);
 
         setGeneratedCards(newCardIndexs)
 	};
 
     //Update user seen cards
-	const cardClickHandle = (id) => {};
+	const cardClickHandle = (cardnumber) => {
+		if (!userSeenCards.includes(cardnumber)) {
+			let newUserSeenCards = [...userSeenCards, cardnumber];
+            console.log(newUserSeenCards);
+
+			setUserSeenCards(newUserSeenCards);
+			updateScore();
+		} else {
+			resetScore();
+		}
+        
+	};
 
     //Mount component on load
     useEffect(()=>{
@@ -55,7 +66,7 @@ const CardDeck = ({ updateScore, cardDeckSize }) => {
 				);
                 const data = await response.json()
                 const charImage = data.image
-                console.log(charImage)
+                // console.log(charImage)
 
                 imgsrc.push(charImage)   
             }
@@ -64,7 +75,7 @@ const CardDeck = ({ updateScore, cardDeckSize }) => {
         fetchData();
     }, [generatedCards])
     
-    console.log(imgURL)
+    // console.log(imgURL)
 
 
 
@@ -72,10 +83,14 @@ const CardDeck = ({ updateScore, cardDeckSize }) => {
 	return (
 		<div>
             {imgURL.map((imgsrc, index) => {
-                return(
-                    <Cards key={index} imgsrc={imgsrc} updateScore={updateScore} />
-
-                )
+                return (
+					<Cards
+						key={index}
+						cardnumber={generatedCards[index]}
+						imgsrc={imgsrc}
+						cardClickHandle={cardClickHandle}
+					/>
+				);
             })
             }
             

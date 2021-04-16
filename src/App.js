@@ -28,22 +28,23 @@
 import "./App.css";
 import ScoreCounter from "./components/ScoreCounter";
 import CardDeck from "./components/CardDeck";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function App() {
   const [currentScore, setCurrentScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
-  const [cardDeckSize, setCardDeckSize] = useState(100);
+  const [cardDeckSize, setCardDeckSize] = useState(30);
 
   const updateScore = () =>{
-    if(true){
-      let addScore = currentScore;
-      addScore++
+    let addScore = currentScore;
+	  addScore++;
 
-      setCurrentScore(addScore)
-    }else{
-      setCurrentScore(0)
-    }
+	  setCurrentScore(addScore);
+  }
+
+  const resetScore = () =>{
+    setBestScore(currentScore);
+    setCurrentScore(0);
   }
 
 
@@ -67,6 +68,7 @@ function App() {
 						<CardDeck
 							cardDeckSize={cardDeckSize}
 							updateScore={updateScore}
+							resetScore={resetScore}
 						/>
 					</div>
 				</>

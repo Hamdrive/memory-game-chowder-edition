@@ -1,8 +1,8 @@
-const Cards = ({ updateScore, imgsrc }) => {
+const Cards = ({ cardClickHandle, imgsrc, cardnumber }) => {
 	return (
 		<div>
-			<img src={imgsrc} alt="" />
-			<button onClick={updateScore}></button>
+			{/* {console.log(cardnumber)} */}
+			<img src={imgsrc} alt="" onClick={() => cardClickHandle(cardnumber)} />
 		</div>
 	);
 };

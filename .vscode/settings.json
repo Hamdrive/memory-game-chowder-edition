@@ -1,4 +1,12 @@
 {
     "prettier.tabWidth": 4,
-    "prettier.useTabs": true
+    "prettier.useTabs": true,
+    "eslint.codeAction.showDocumentation": {
+
+
+        "enable": true
+    },
+    "eslint.rules.customizations": [
+    
+    ],
 }

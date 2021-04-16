@@ -1,7 +1,7 @@
-const Cards = ({ updateScore }) => {
+const Cards = ({ updateScore, imgsrc }) => {
 	return (
 		<div>
-			<img src="" alt="" />
+			<img src={imgsrc} alt="" />
 			<button onClick={updateScore}></button>
 		</div>
 	);

@@ -31,7 +31,7 @@ const CardDeck = ({resetScore, updateScore, cardDeckSize }) => {
         }
 
         // console.log(allCardsIndex);
-        // console.log(newCardIndexs);
+        console.log(newCardIndexs);
 
         setGeneratedCards(newCardIndexs)
 	};
@@ -47,13 +47,17 @@ const CardDeck = ({resetScore, updateScore, cardDeckSize }) => {
 		} else {
 			resetScore();
 		}
+
+        generatedRandomCards();
         
 	};
+    
 
     //Mount component on load
     useEffect(()=>{
         generatedRandomCards()
     },[])
+
 
 	//Obtain characters image from API
 	//Try to also implement JS api (https://github.com/afuh/rick-and-morty-api-node)
@@ -66,7 +70,7 @@ const CardDeck = ({resetScore, updateScore, cardDeckSize }) => {
 				);
                 const data = await response.json()
                 const charImage = data.image
-                // console.log(charImage)
+                console.log(charImage)
 
                 imgsrc.push(charImage)   
             }

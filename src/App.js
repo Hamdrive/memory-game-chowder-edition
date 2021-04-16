@@ -27,7 +27,7 @@
 
 import "./App.css";
 import ScoreCounter from "./components/ScoreCounter";
-import CardDeck from "./components/Cards";
+import CardDeck from "./components/CardDeck";
 import { useEffect, useState } from "react";
 
 function App() {
@@ -59,9 +59,15 @@ function App() {
 							Click on the Character that you have'nt seen before!
 						</p>
 					</div>
-          <ScoreCounter currentScore={currentScore} bestScore={bestScore}/>
+					<ScoreCounter
+						currentScore={currentScore}
+						bestScore={bestScore}
+					/>
 					<div className="CardDeck">
-						<CardDeck />
+						<CardDeck
+							cardDeckSize={cardDeckSize}
+							updateScore={updateScore}
+						/>
 					</div>
 				</>
 			) : (
@@ -70,9 +76,7 @@ function App() {
 						<p>Game Of Thrones Memory Game</p>
 					</div>
 					<div className="GameDescription">
-						<p>
-							Congratulations! You got all the characters!
-						</p>
+						<p>Congratulations! You got all the characters!</p>
 					</div>
 				</>
 			)}

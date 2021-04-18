@@ -2,11 +2,11 @@ const ScoreCounter = ({currentScore, bestScore}) =>{
     return (
         <div className="scorecard">
             <div className="currentscore">
-                <p>{currentScore}</p>
+                <p>Current Score: {currentScore}</p>
             </div>
 
             <div className="bestscore">
-                <p>{bestScore}</p>
+                <p>Best Score: {bestScore}</p>
             </div>
         </div>
 

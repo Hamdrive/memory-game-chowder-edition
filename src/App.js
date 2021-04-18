@@ -33,7 +33,8 @@ import { useState } from "react";
 function App() {
   const [currentScore, setCurrentScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
-  const [cardDeckSize, setCardDeckSize] = useState(30);
+  const cardDeckSize = 30;
+  const maxPlay = 15;
 
   const updateScore = () =>{
     let addScore = currentScore;
@@ -50,10 +51,10 @@ function App() {
 
 	return (
 		<div className="App">
-			{currentScore < cardDeckSize ? (
+			{currentScore < maxPlay ? (
 				<>
 					<div className="Title">
-						<p>Game Of Thrones Memory Game</p>
+						<p>Rick & Morty Memory Game</p>
 					</div>
 					<div className="GameDescription">
 						<p>
@@ -75,7 +76,7 @@ function App() {
 			) : (
 				<>
 					<div className="Title">
-						<p>Game Of Thrones Memory Game</p>
+						<p>Rick & Morty Memory Game</p>
 					</div>
 					<div className="GameDescription">
 						<p>Congratulations! You got all the characters!</p>

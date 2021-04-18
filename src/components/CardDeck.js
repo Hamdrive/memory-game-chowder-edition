@@ -25,14 +25,12 @@ const CardDeck = ({resetScore, updateScore, cardDeckSize }) => {
 
         for(let i=0; i<numberOfCards; i++){
             let n = allCardsIndex[i];
-            allCardsIndex.splice(1,1)
-            console.log(n)
+            // console.log(allCardsIndex)
             newCardIndexs.push(n)
         }
 
         // console.log(allCardsIndex);
         console.log(newCardIndexs);
-
         setGeneratedCards(newCardIndexs)
 	};
 
@@ -46,8 +44,10 @@ const CardDeck = ({resetScore, updateScore, cardDeckSize }) => {
 			updateScore();
 		} else {
 			resetScore();
+
 		}
 
+        //Generate new stack of cards
         generatedRandomCards();
         
 	};

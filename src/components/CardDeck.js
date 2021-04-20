@@ -85,7 +85,7 @@ const CardDeck = ({resetScore, updateScore, cardDeckSize }) => {
 
 
 	return (
-		<div className="flex flex-row justify-items-center items-center">
+		<div className="flex flex-row justify-items-center items-center mt-8">
 			{imgURL.map((imgsrc, index) => {
 				return (
 					<Cards

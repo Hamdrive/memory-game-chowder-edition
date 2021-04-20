@@ -50,36 +50,40 @@ function App() {
 
 
 	return (
-		<div className="flex flex-col justify-items-center items-center">
+		<div className="bg-lab min-h-screen">
 			{currentScore < maxPlay ? (
 				<>
-					<div className="text-5xl font-sans mt-8 mb-4">
-						<p>Rick & Morty Memory Game</p>
+					<div className="flex flex-col justify-items-center items-center h-screen bg-white bg-opacity-50">
+						<div className="text-4xl font-sans mt-8 mb-4 font-semibold">
+							<p>Rick & Morty Memory Game</p>
+						</div>
+						<div className="text-2xl font-sans mt-4 mb-6 font-semibold">
+							<p>
+								Click on the Character that you have'nt seen
+								before!
+							</p>
+						</div>
+						<ScoreCounter
+							currentScore={currentScore}
+							bestScore={bestScore}
+						/>
+
+						<CardDeck
+							cardDeckSize={cardDeckSize}
+							updateScore={updateScore}
+							resetScore={resetScore}
+						/>
 					</div>
-					<div className="text-3xl font-sans mt-4 mb-6">
-						<p>
-							Click on the Character that you have'nt seen before!
-						</p>
-					</div>
-					<ScoreCounter
-						currentScore={currentScore}
-						bestScore={bestScore}
-					/>
-					
-					<CardDeck
-						cardDeckSize={cardDeckSize}
-						updateScore={updateScore}
-						resetScore={resetScore}
-					/>
-					
 				</>
 			) : (
 				<>
-					<div className="Title">
-						<p>Rick & Morty Memory Game</p>
-					</div>
-					<div className="GameDescription">
-						<p>Congratulations! You got all the characters!</p>
+					<div className="flex flex-col justify-items-center items-center h-screen bg-white bg-opacity-50">
+						<div className="text-4xl font-sans mt-8 mb-4 font-semibold">
+							<p>Rick & Morty Memory Game</p>
+						</div>
+						<div className="text-2xl font-sans mt-4 mb-6 font-semibold">
+							<p>Congratulations! You got all the characters!</p>
+						</div>
 					</div>
 				</>
 			)}

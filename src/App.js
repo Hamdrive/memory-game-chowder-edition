@@ -28,6 +28,7 @@
 import ScoreCounter from "./components/ScoreCounter";
 import CardDeck from "./components/CardDeck";
 import { useState } from "react";
+import "./styles.css";
 
 function App() {
   const [currentScore, setCurrentScore] = useState(0);
@@ -49,13 +50,13 @@ function App() {
 
 
 	return (
-		<div className="App">
+		<div className="flex flex-col justify-items-center items-center">
 			{currentScore < maxPlay ? (
 				<>
-					<div className="Title">
+					<div className="text-5xl font-sans mt-8 mb-4">
 						<p>Rick & Morty Memory Game</p>
 					</div>
-					<div className="GameDescription">
+					<div className="text-3xl font-sans mt-4 mb-6">
 						<p>
 							Click on the Character that you have'nt seen before!
 						</p>
@@ -64,13 +65,13 @@ function App() {
 						currentScore={currentScore}
 						bestScore={bestScore}
 					/>
-					<div className="CardDeck">
-						<CardDeck
-							cardDeckSize={cardDeckSize}
-							updateScore={updateScore}
-							resetScore={resetScore}
-						/>
-					</div>
+					
+					<CardDeck
+						cardDeckSize={cardDeckSize}
+						updateScore={updateScore}
+						resetScore={resetScore}
+					/>
+					
 				</>
 			) : (
 				<>

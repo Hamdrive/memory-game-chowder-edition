@@ -1,9 +1,11 @@
 const Cards = ({ cardClickHandle, imgsrc, cardnumber }) => {
 	return (
-		<div>
-			{/* {console.log(cardnumber)} */}
-			<img src={imgsrc} alt="" onClick={() => cardClickHandle(cardnumber)} />
-		</div>
+		<img
+			className="mt-8 ml-4 mr-4"
+			src={imgsrc}
+			alt=""
+			onClick={() => cardClickHandle(cardnumber)}
+		/>
 	);
 };
 

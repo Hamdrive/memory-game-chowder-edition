@@ -85,9 +85,9 @@ const CardDeck = ({resetScore, updateScore, cardDeckSize }) => {
 
 
 	return (
-		<div>
-            {imgURL.map((imgsrc, index) => {
-                return (
+		<div className="flex flex-row justify-items-center items-center">
+			{imgURL.map((imgsrc, index) => {
+				return (
 					<Cards
 						key={index}
 						cardnumber={generatedCards[index]}
@@ -95,9 +95,7 @@ const CardDeck = ({resetScore, updateScore, cardDeckSize }) => {
 						cardClickHandle={cardClickHandle}
 					/>
 				);
-            })
-            }
-            
+			})}
 		</div>
 	);
 };

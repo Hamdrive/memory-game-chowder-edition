@@ -25,7 +25,6 @@
 // 5. In Card:
 //   a. inside component use image tag to generate image with imgsrc, and pass click handler to pass to userseencards method
 
-import "./App.css";
 import ScoreCounter from "./components/ScoreCounter";
 import CardDeck from "./components/CardDeck";
 import { useState } from "react";

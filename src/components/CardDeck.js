@@ -45,6 +45,7 @@ const CardDeck = ({resetScore, updateScore, cardDeckSize }) => {
 			updateScore();
 		} else {
 			resetScore();
+            setUserSeenCards([]);
 		}
 
         //Generate new stack of cards

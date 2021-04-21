@@ -6,6 +6,7 @@ const CardDeck = ({resetScore, updateScore, cardDeckSize }) => {
 	const [userSeenCards, setUserSeenCards] = useState([]);
 	const [numberOfCards, setNumberOfCards] = useState(3);
     const [imgURL, setImgURL] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     //Generate array with value of all cards for getting random cards and API
     const allCardsIndex = Array(cardDeckSize).fill().map((_, index) => index + 1);
@@ -61,6 +62,7 @@ const CardDeck = ({resetScore, updateScore, cardDeckSize }) => {
 	//Obtain characters image from API
 	//Try to also implement JS api (https://github.com/afuh/rick-and-morty-api-node)
     useEffect(()=>{
+        setIsLoading(true)
         async function fetchData(){
             const imgsrc = [];
             for(let card of generatedCards){
@@ -76,6 +78,7 @@ const CardDeck = ({resetScore, updateScore, cardDeckSize }) => {
             setImgURL(imgsrc);
         }
         fetchData();
+        setIsLoading(false);
     }, [generatedCards])
     
     // console.log(imgURL)
@@ -84,17 +87,27 @@ const CardDeck = ({resetScore, updateScore, cardDeckSize }) => {
 
 
 	return (
-		<div className="flex flex-row justify-items-center items-center mt-4">
-			{imgURL.map((imgsrc, index) => {
-				return (
-					<Cards
-						key={index}
-						cardnumber={generatedCards[index]}
-						imgsrc={imgsrc}
-						cardClickHandle={cardClickHandle}
-					/>
-				);
-			})}
+		<div>
+			{!isLoading ? (
+				<>
+					<div className="flex flex-row justify-items-center items-center mt-4">
+						{imgURL.map((imgsrc, index) => {
+							return (
+								<Cards
+									key={index}
+									cardnumber={generatedCards[index]}
+									imgsrc={imgsrc}
+									cardClickHandle={cardClickHandle}
+								/>
+							);
+						})}
+					</div>
+				</>
+			) : (
+				<>
+					<h1>LOADING</h1>
+				</>
+			)}
 		</div>
 	);
 };

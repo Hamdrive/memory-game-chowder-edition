@@ -587,7 +587,7 @@ video {
 @font-face {
   font-family: 'Schwifty';
 
-  src: local('Schwifty'), url(get_schwifty.ttf) format('ttf');
+  src: local('Schwifty'), url(get_schwifty.ttf) format('truetype');
 }
 
 .space-y-0 > :not([hidden]) ~ :not([hidden]) {

@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Schwifty';
+  font-weight: 400;
+  src: url("./fonts/get_schwifty.ttf")
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

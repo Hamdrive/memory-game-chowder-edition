@@ -44,7 +44,6 @@ const CardDeck = ({resetScore, updateScore, cardDeckSize }) => {
 			updateScore();
 		} else {
 			resetScore();
-
 		}
 
         //Generate new stack of cards
@@ -85,7 +84,7 @@ const CardDeck = ({resetScore, updateScore, cardDeckSize }) => {
 
 
 	return (
-		<div className="flex flex-row justify-items-center items-center mt-8">
+		<div className="flex flex-row justify-items-center items-center mt-4">
 			{imgURL.map((imgsrc, index) => {
 				return (
 					<Cards

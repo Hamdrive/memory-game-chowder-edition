@@ -13,7 +13,6 @@ const CardDeck = ({resetScore, updateScore, cardDeckSize }) => {
 
 	//Prepare array of random indexes for character API call
 	const generatedRandomCards = () => {
-        
         console.log(allCardsIndex)
 		let newCardIndexs = [];
 
@@ -26,11 +25,9 @@ const CardDeck = ({resetScore, updateScore, cardDeckSize }) => {
 
         for(let i=0; i<numberOfCards; i++){
             let n = allCardsIndex[i];
-            // console.log(allCardsIndex)
             newCardIndexs.push(n)
         }
 
-        // console.log(allCardsIndex);
         console.log(newCardIndexs);
         setGeneratedCards(newCardIndexs)
 	};
@@ -40,17 +37,14 @@ const CardDeck = ({resetScore, updateScore, cardDeckSize }) => {
 		if (!userSeenCards.includes(cardnumber)) {
 			let newUserSeenCards = [...userSeenCards, cardnumber];
             console.log(newUserSeenCards);
-
 			setUserSeenCards(newUserSeenCards);
 			updateScore();
 		} else {
 			resetScore();
             setUserSeenCards([]);
 		}
-
         //Generate new stack of cards
         generatedRandomCards();
-        
 	};
     
 
@@ -61,7 +55,6 @@ const CardDeck = ({resetScore, updateScore, cardDeckSize }) => {
 
 
 	//Obtain characters image from API
-	//Try to also implement JS api (https://github.com/afuh/rick-and-morty-api-node)
     useEffect(()=>{
         setIsLoading(true)
         async function fetchData(){
@@ -73,7 +66,6 @@ const CardDeck = ({resetScore, updateScore, cardDeckSize }) => {
                 const data = await response.json()
                 const charImage = data.image
                 console.log(charImage)
-
                 imgsrc.push(charImage)   
             }
             setImgURL(imgsrc);
@@ -81,11 +73,6 @@ const CardDeck = ({resetScore, updateScore, cardDeckSize }) => {
         fetchData();
         setIsLoading(false);
     }, [generatedCards])
-    
-    // console.log(imgURL)
-
-
-
 
 	return (
 		<div>
@@ -106,7 +93,9 @@ const CardDeck = ({resetScore, updateScore, cardDeckSize }) => {
 				</>
 			) : (
 				<>
-					<h1>LOADING</h1>
+					<h1 className="text-4xl font-serif mt-8 font-semibold">
+						LOADING
+					</h1>
 				</>
 			)}
 		</div>

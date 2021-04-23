@@ -13,6 +13,7 @@ const CardDeck = ({resetScore, updateScore, cardDeckSize }) => {
 
 	//Prepare array of random indexes for character API call
 	const generatedRandomCards = () => {
+		setIsLoading(true);
         console.log(allCardsIndex)
 		let newCardIndexs = [];
 
@@ -57,7 +58,7 @@ const CardDeck = ({resetScore, updateScore, cardDeckSize }) => {
 
 	//Obtain characters image from API
     useEffect(()=>{
-        setIsLoading(true)
+        
         async function fetchData(){
             const imgsrc = [];
             for(let card of generatedCards){
@@ -94,8 +95,9 @@ const CardDeck = ({resetScore, updateScore, cardDeckSize }) => {
 				</>
 			) : (
 				<>
-					<h1 className="text-4xl font-serif mt-8 font-semibold">
-						LOADING
+					{console.log("Loading")}
+					<h1 className="text-5xl font-serif mt-10 font-semibold">
+						LOADING...
 					</h1>
 				</>
 			)}

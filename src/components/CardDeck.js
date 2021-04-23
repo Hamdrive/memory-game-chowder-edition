@@ -4,9 +4,9 @@ import Cards from "./Cards"
 const CardDeck = ({resetScore, updateScore, cardDeckSize }) => {
 	const [generatedCards, setGeneratedCards] = useState([]);
 	const [userSeenCards, setUserSeenCards] = useState([]);
-	const [numberOfCards, setNumberOfCards] = useState(3);
     const [imgURL, setImgURL] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+	const numberOfCards = 3;
 
     //Generate array with value of all cards for getting random cards and API
     const allCardsIndex = Array(cardDeckSize).fill().map((_, index) => index + 1);
@@ -50,8 +50,9 @@ const CardDeck = ({resetScore, updateScore, cardDeckSize }) => {
 
     //Mount component on load
     useEffect(()=>{
-        generatedRandomCards()
-    },[])
+		generatedRandomCards();
+		// eslint-disable-next-line
+	},[])
 
 
 	//Obtain characters image from API

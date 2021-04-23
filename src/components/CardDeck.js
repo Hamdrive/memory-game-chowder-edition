@@ -95,7 +95,6 @@ const CardDeck = ({resetScore, updateScore, cardDeckSize }) => {
 				</>
 			) : (
 				<>
-					{console.log("Loading")}
 					<h1 className="text-5xl font-serif mt-10 font-semibold">
 						LOADING...
 					</h1>

@@ -5,7 +5,7 @@ const CardDeck = ({resetScore, updateScore, cardDeckSize }) => {
 	const [generatedCards, setGeneratedCards] = useState([]);
 	const [userSeenCards, setUserSeenCards] = useState([]);
     const [imgURL, setImgURL] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 	const numberOfCards = 3;
 
     //Generate array with value of all cards for getting random cards and API
@@ -58,7 +58,7 @@ const CardDeck = ({resetScore, updateScore, cardDeckSize }) => {
 
 	//Obtain characters image from API
     useEffect(()=>{
-        
+        setIsLoading(true);
         async function fetchData(){
             const imgsrc = [];
             for(let card of generatedCards){
